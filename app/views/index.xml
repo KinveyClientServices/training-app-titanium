@@ -1,0 +1,176 @@
+<Alloy>
+	<TabGroup>
+		<Tab title="Auth" icon="lock.png">
+			<Window title="Authenticate">
+				<Label top="50">Login Using Mobile Identity Connect</Label>
+				<Button id="loginBtn" top="100" width="100" color="#ffffff" backgroundColor="#328cfa" onClick="doLogin">Login</Button>
+				<Button id="logoutBtn" top="150" width="100" color="ffffff" backgroundColor="#328cfa" onClick="doLogout">Logout</Button>
+				
+			</Window>
+			
+		</Tab>
+		<Tab title="Products" icon="cart.png" onFocus="getProducts">
+			<Window title="Products">
+				<Label>Products</Label>
+				
+				<ListView id="productlist" defaultItemTemplate='productViewTemplate' onPull="refreshProducts" onItemclick="deleteme">
+					<HeaderView>
+						<!--<Button left="5" onClick="limit4" color="ffffff" backgroundColor="#328cfa">Limit 4</Button>
+						<Button left="55" color="ffffff" backgroundColor="#328cfa">Sort</Button>-->
+						<ButtonBar onClick="processButtonBar">
+							
+							<Labels>
+                <!-- Specify text with node text or the title attribute. -->
+                <!-- Can also specify the enabled, image and width attributes. -->
+                <Label>Limit 4</Label>
+                <Label>Sort</Label>
+                <Label>Skip</Label>
+            </Labels>
+						</ButtonBar>
+					
+					
+					</HeaderView>
+        <Templates>
+        	
+        	<ItemTemplate name="productViewTemplate" height="100dp">
+        		<View id="productTemplateWrapper">
+        			<Label class="boldLabel" bindId="productname" id="productname" top="5"></Label>
+        			<Label bindId="productdesc" id="productdesc" top="25"></Label>
+        		</View>
+        	</ItemTemplate>
+        	
+      
+        	</Templates>
+        	
+        	<ListSection id='productListSection'></ListSection>
+        	<PullView>
+                <View backgroundColor="red" height="50">
+                    <Label>Release to reload</Label>
+                </View>
+            </PullView>
+    </ListView>
+    
+			</Window>
+		</Tab>
+		<Tab title="Partners" icon="users.png" onFocus="getPartners">
+			<Window title="Partners">
+				<Label fontSize="10">VMWare Partners</Label>
+				<ListView id="partnerlist" defaultItemTemplate='partnerViewTemplate' onPull="refreshPartners">
+        <Templates>
+        	<ItemTemplate name="partnerViewTemplate" height="50dp">
+        		<View id="partnerTemplateWrapper">
+        			<Label class="boldLabel" bindId="partnername" id="partnername" top="5"></Label>
+        			<Label bindId="partnercompany" id="partnercompany" top="25"></Label>
+        		</View>
+        	</ItemTemplate>
+        	
+        	
+        	</Templates>
+        	<ListSection id='partnerListSection'></ListSection>
+        	<PullView>
+                <View backgroundColor="red" height="50">
+                    <Label>Release to reload</Label>
+                </View>
+            </PullView>
+    </ListView>
+			</Window>
+			
+		</Tab>
+		<Tab title="ToDos" icon="list2.png" onFocus="getTodos">
+			<Window title="ToDos">
+				<Label>HR Tasks</Label>
+				<ListView id="todolist" defaultItemTemplate='TodoViewTemplate' onPull="refreshTodo">
+        <Templates>
+        	<ItemTemplate name="TodoViewTemplate" height="70dp">
+        		<View id="TodoTemplateWrapper">
+        			<Label class="boldLabel" bindId="myaction" id="myaction" top="5"></Label>
+        			<Label bindId="myduedate" id="myduedate" top="25"></Label>
+        			<Label bindId="mycompleted" id="completed" top="45"></Label>
+        			
+        			
+        		</View>
+        	</ItemTemplate>
+        	
+        	
+        	</Templates>
+        	<ListSection id='TodoListSection'></ListSection>
+        	<PullView>
+                <View backgroundColor="red" height="50">
+                    <Label>Release to reload</Label>
+                </View>
+            </PullView>
+    </ListView>
+			</Window>
+			
+		</Tab>
+		<Tab title="Collateral" icon="file-pdf.png" onFocus="getCollateral">
+			<Window title="Collateral">
+				<Label>VMWare Collateral</Label>
+				<DocumentViewer id="pdfshow"></DocumentViewer>
+				<ListView id="colllist" defaultItemTemplate='CollViewTemplate' onPull="refreshColl" onItemclick="fileClick">
+        <Templates>
+        	<ItemTemplate name="CollViewTemplate" height="70dp">
+        		<View id="CollTemplateWrapper">
+        			<Label class="boldLabel" bindId="prettyname" id="prettyname" top="25"></Label>
+        			<!--<Label bindId="myduedate" id="myduedate" top="25"></Label>
+        			<Label bindId="mycompleted" id="completed" top="45"></Label>-->
+        			
+        			
+        		</View>
+        	</ItemTemplate>
+        	
+        	
+        	</Templates>
+        	<ListSection id='CollListSection'></ListSection>
+        	<PullView>
+                <View backgroundColor="red" height="50">
+                    <Label>Release to reload</Label>
+                </View>
+            </PullView>
+    </ListView>
+			</Window>
+			
+	</Tab>
+	<Tab title="Insert" icon="cloud-upload.png">
+			<Window title="Insert">
+				<Label top="5">Data Inserts</Label>
+				<TextField id="mytask" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED" color="#336699" top="50" left="10" width="250" height="60">
+					<AttributedHintText>
+            Task
+        </AttributedHintText>
+        </TextField>
+        <TextField id="myduedate" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED" color="#336699" top="110" left="10" width="250" height="60">
+					<AttributedHintText>
+            Due Date
+        </AttributedHintText>
+        </TextField>
+        <Label top="190" left="5">Task Completed?</Label>
+        <Switch id="completedSwitch" left="160" top="185" value="true" />
+        <Button onClick="insertTask">insert</Button>
+				<!--<DocumentViewer id="pdfshow"></DocumentViewer>
+				<ListView id="colllist" defaultItemTemplate='CollViewTemplate' onPull="refreshColl" onItemclick="fileClick">
+        <Templates>
+        	<ItemTemplate name="CollViewTemplate" height="70dp">
+        		<View id="CollTemplateWrapper">
+        			<Label class="boldLabel" bindId="prettyname" id="prettyname" top="25"></Label>
+        			<!--<Label bindId="myduedate" id="myduedate" top="25"></Label>
+        			<Label bindId="mycompleted" id="completed" top="45"></Label>
+        			
+        			
+        		</View>
+        	</ItemTemplate>
+        	
+        	
+        	</Templates>
+        	<ListSection id='CollListSection'></ListSection>
+        	<PullView>
+                <View backgroundColor="red" height="50">
+                    <Label>Release to reload</Label>
+                </View>
+            </PullView>
+    </ListView>-->
+			</Window>
+			
+	</Tab>
+	</TabGroup>
+</Alloy>
