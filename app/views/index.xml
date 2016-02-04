@@ -13,7 +13,7 @@
 			<Window title="Products">
 				<Label>Products</Label>
 				
-				<ListView id="productlist" defaultItemTemplate='productViewTemplate' onPull="refreshProducts" onItemclick="deleteme">
+				<ListView id="productlist" defaultItemTemplate='productViewTemplate' onPull="getProducts" onItemclick="deleteme">
 					<HeaderView>
 						<!--<Button left="5" onClick="limit4" color="ffffff" backgroundColor="#328cfa">Limit 4</Button>
 						<Button left="55" color="ffffff" backgroundColor="#328cfa">Sort</Button>-->
@@ -55,7 +55,7 @@
 		<Tab title="Partners" icon="users.png" onFocus="getPartners">
 			<Window title="Partners">
 				<Label fontSize="10">VMWare Partners</Label>
-				<ListView id="partnerlist" defaultItemTemplate='partnerViewTemplate' onPull="refreshPartners">
+				<ListView id="partnerlist" defaultItemTemplate='partnerViewTemplate' onPull="getPartners">
         <Templates>
         	<ItemTemplate name="partnerViewTemplate" height="50dp">
         		<View id="partnerTemplateWrapper">
@@ -79,7 +79,7 @@
 		<Tab title="ToDos" icon="list2.png" onFocus="getTodos">
 			<Window title="ToDos">
 				<Label>HR Tasks</Label>
-				<ListView id="todolist" defaultItemTemplate='TodoViewTemplate' onPull="refreshTodo">
+				<ListView id="todolist" defaultItemTemplate='TodoViewTemplate' onPull="getTodos">
         <Templates>
         	<ItemTemplate name="TodoViewTemplate" height="70dp">
         		<View id="TodoTemplateWrapper">
@@ -107,15 +107,11 @@
 			<Window title="Collateral">
 				<Label>VMWare Collateral</Label>
 				<DocumentViewer id="pdfshow"></DocumentViewer>
-				<ListView id="colllist" defaultItemTemplate='CollViewTemplate' onPull="refreshColl" onItemclick="fileClick">
+				<ListView id="colllist" defaultItemTemplate='CollViewTemplate' onPull="getCollateral" onItemclick="fileClick">
         <Templates>
         	<ItemTemplate name="CollViewTemplate" height="70dp">
         		<View id="CollTemplateWrapper">
         			<Label class="boldLabel" bindId="prettyname" id="prettyname" top="25"></Label>
-        			<!--<Label bindId="myduedate" id="myduedate" top="25"></Label>
-        			<Label bindId="mycompleted" id="completed" top="45"></Label>-->
-        			
-        			
         		</View>
         	</ItemTemplate>
         	
@@ -146,29 +142,7 @@
         </TextField>
         <Label top="190" left="5">Task Completed?</Label>
         <Switch id="completedSwitch" left="160" top="185" value="true" />
-        <Button onClick="insertTask">insert</Button>
-				<!--<DocumentViewer id="pdfshow"></DocumentViewer>
-				<ListView id="colllist" defaultItemTemplate='CollViewTemplate' onPull="refreshColl" onItemclick="fileClick">
-        <Templates>
-        	<ItemTemplate name="CollViewTemplate" height="70dp">
-        		<View id="CollTemplateWrapper">
-        			<Label class="boldLabel" bindId="prettyname" id="prettyname" top="25"></Label>
-        			<!--<Label bindId="myduedate" id="myduedate" top="25"></Label>
-        			<Label bindId="mycompleted" id="completed" top="45"></Label>
-        			
-        			
-        		</View>
-        	</ItemTemplate>
-        	
-        	
-        	</Templates>
-        	<ListSection id='CollListSection'></ListSection>
-        	<PullView>
-                <View backgroundColor="red" height="50">
-                    <Label>Release to reload</Label>
-                </View>
-            </PullView>
-    </ListView>-->
+        <Button color="#ffffff" backgroundColor="#328cfa" top="250" width="100" onClick="insertTask">insert</Button>
 			</Window>
 			
 	</Tab>
