@@ -3,23 +3,23 @@
     <id>com.kinvey.vmwarew</id>
     <name>Training</name>
     <version>1.0</version>
-    <publisher>delacey</publisher>
+    <publisher>Kinvey</publisher>
     <url>https://www.kinvey.com</url>
-    <description>undefined</description>
-    <copyright>2016 by delacey</copyright>
+    <description>VMware Training App</description>
+    <copyright>2016 Kinvey</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>8c280e1b-f174-4ebd-9111-14bfbc6d2384</guid>
+    <guid>3c7ca892-f143-4871-9000-113fab21fae8</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
             <dict>
-            	 <key>UIBackgroundModes</key>
-<array>
-<string>remote-notification</string>
-</array>
+                <key>UIBackgroundModes</key>
+                <array>
+                    <string>remote-notification</string>
+                </array>
                 <key>UISupportedInterfaceOrientations~iphone</key>
                 <array>
                     <string>UIInterfaceOrientationPortrait</string>
@@ -65,7 +65,7 @@
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
-    <property name="appc-app-id" type="string">56a8c2579d5741e87920ea28</property>
+    <property name="appc-app-id" type="string">56ba55dd872574804c52c1d2</property>
     <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
     <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
     <property name="acs-oauth-secret-development" type="string">SJ3X4GiuH4ascZ5YaWFHvle5FW5iFZF0</property>

@@ -83,8 +83,10 @@ function fileClick(e) {
 		},
 		timeout : 10000
 	});
+
 	xhr.open('GET', pdffiles[e.itemIndex]._downloadURL);
 	xhr.send();
+
 	Ti.App.addEventListener('pdf_downloaded', function(e) {
 		// show the pdf in the documentviewer
 		//
@@ -93,7 +95,6 @@ function fileClick(e) {
 			animated : true
 		});
 	});
-
 }
 
 //  This is invoked when someone clicks on the products tab or refreshes the products tab screen
