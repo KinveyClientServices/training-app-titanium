@@ -6,7 +6,7 @@ $.index.open();
 function doLogin(e) {
 	Titanium.API.info("You clicked the login button");
 
-	var promise = Kinvey.User.MIC.loginWithAuthorizationCodeLoginPage('http://localhost:8100');
+	var promise = Kinvey.User.MIC.loginWithAuthorizationCodeLoginPage('http://localhost');
 	promise.then(function(user) {
 		Titanium.API.info('success with MIC');
 
@@ -142,7 +142,7 @@ function getProducts(e) {
 function getPartners(e) {
 	Titanium.API.info("You clicked the getPartners tab");
 
-	var promise = Kinvey.DataStore.find('partner', null);
+	var promise = Kinvey.DataStore.find('partners', null);
 	promise.then(function(entities) {
 		Titanium.API.info(entities);
 
@@ -284,7 +284,7 @@ function init() {
 	Kinvey.init({
 		micHostName : 'https://vmwus1-auth.kinvey.com',
 		apiHostName : 'https://vmwus1-baas.kinvey.com',
-		appKey : 'kid_ZJb6V2mWTe',
+		appKey : 'kidd_ZJb6V2mWTe',
 		appSecret : '0b367baf6c3947bbafa6f59c928f2cdd',
 		sync : {
 			enable : true,
@@ -505,7 +505,7 @@ function deleteme(e) {
 
 	// pass to the destroy method the _id of the clicked Product
 	//
-	var promise = Kinvey.DataStore.destroy('vProducts', currentProducts[e.itemIndex]._id);
+	var promise = Kinvey.DataStore.destroy('vProducts', currentProducts[e.itemIndex].productname);
 	promise.then(function() {
 		Titanium.API.info('successful delete');
 		alert('item deleted');
